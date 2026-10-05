@@ -14,12 +14,10 @@ Our application is a SaaS platform that allows individuals and companies to list
 
 | Member | Initial responsibility | Next action |
 |---|---|---|
-| [Name 1] | Coordination and README | Keep decisions, questions and the milestone commit together |
-| [Name 2] | Users and workflow | Describe needs and the steps of one workflow |
-| [Name 3] | Sketches and interaction | Sketch the screens and feedback for that workflow |
-| [Name 4] | Data and API exploration | Prepare sample JSON and clarify the proposed operations |
+| Dominik Schraner |  |
+| Silvan Aichholz |  |
+| Samuel Albani |  |
 
-*These are suggested starting responsibilities, not permanent silos. Discuss and review each other's work; everyone should understand the draft. Adjust or rotate responsibilities as needed.*
 
 ## 1. Analysis
 
