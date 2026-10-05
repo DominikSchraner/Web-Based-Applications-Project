@@ -1,70 +1,68 @@
 # Web-Based-Applications-Project
 
-# [Project name]
+# DriveShare / Vehicle Rental SaaS (Working Title)
 
 **Current stage:** Milestone 1 — design draft. Update this README throughout the project; do not start a separate document for each milestone.
 
 Later sections will be introduced in the fourth theory session and subsequent classes. For now, document the design draft below.
 
-Replace the prompts with your group's current thinking. Drafts and open questions are expected; no running backend, database or complete OpenAPI contract is required for this milestone. If your idea is still undecided, use the bar scenario and class exercises as a starting point and identify what you have adapted.
-
 ## Project overview
 
-[Briefly describe the application, its intended users and the problem it addresses.]
+Our application is a SaaS platform that allows individuals and companies to list their vehicles for rent, while enabling other users to easily search, book, and rent these vehicles for temporary use. It addresses the problem of underutilized vehicles sitting idle, while providing flexible, on-demand mobility options for people who do not own a car.
 
 ### Team and initial responsibilities
 
 | Member | Initial responsibility | Next action |
 |---|---|---|
-| [Name] | Coordination and README | Keep decisions, questions and the milestone commit together |
-| [Name] | Users and workflow | Describe needs and the steps of one workflow |
-| [Name] | Sketches and interaction | Sketch the screens and feedback for that workflow |
-| [Name] | Data and API exploration | Prepare sample JSON and clarify the proposed operations |
+| [Name 1] | Coordination and README | Keep decisions, questions and the milestone commit together |
+| [Name 2] | Users and workflow | Describe needs and the steps of one workflow |
+| [Name 3] | Sketches and interaction | Sketch the screens and feedback for that workflow |
+| [Name 4] | Data and API exploration | Prepare sample JSON and clarify the proposed operations |
 
-These are suggested starting responsibilities, not permanent silos. Discuss and review each other's work; everyone should understand the draft. Adjust or rotate responsibilities as needed.
+*These are suggested starting responsibilities, not permanent silos. Discuss and review each other's work; everyone should understand the draft. Adjust or rotate responsibilities as needed.*
 
 ## 1. Analysis
 
 ### Scenario, users and goals
 
-- Situation or problem: [Who experiences what difficulty?]
-- Intended users: [Roles and needs]
-- Proposed benefit: [What should improve?]
-- Initial scope: [One workflow to explore first; what can wait?]
+- **Situation or problem:** Individuals and companies have vehicles that are often unused. Conversely, people frequently need temporary access to a vehicle without the financial burden of ownership or traditional, inflexible rental agencies.
+- **Intended users:** 
+  - *Vehicle Owners (Providers):* Private individuals or companies looking to monetize their idle vehicles.
+  - *Renters (Consumers):* People needing a vehicle for a specific timeframe.
+- **Proposed benefit:** Extra income for vehicle owners and flexible, localized mobility for renters.
+- **Initial scope:** The initial workflow will focus on the **Renter searching for and booking an available vehicle**. Admin dashboards, payment gateways, and user verification will wait for later iterations.
 
 ### User stories and first workflow
 
-Describe the benefit as well as the action: “As a [role], I want to [action], so that [benefit].” For example, serving staff want to record table and item quantities so that the bartender receives a clear order. Identify what is outside the initial scope.
+**User Story:** “As a Renter, I want to view available vehicles for my desired dates, so that I can book a car for my upcoming trip.”
 
 | Step | User / role | Action | Information needed | Expected result or feedback |
 |---|---|---|---|---|
-| 1 | [Role] | [Action] | [Input] | [Outcome] |
+| 1 | Renter | Enter search criteria | Location, Start Date, End Date | List of available vehicles matching criteria |
+| 2 | Renter | Select a vehicle | Vehicle ID | Detailed view of the vehicle and total price |
+| 3 | Renter | Confirm booking | Renter details, payment preference | Booking confirmation screen |
+| 4 | Owner | Review booking | Booking ID, Renter ID | Notification of a new pending/confirmed booking |
 
-Include a question or exception worth discussing, such as an unavailable menu item. This builds on exercise 1 from the design class.
+*Open Question:* What happens if an owner manually cancels a booking at the last minute? 
 
 ## 2. Design
 
 ### Screens and navigation
 
-Link or embed your sketches for the workflow (paper photos, draw.io or another tool). Explain the main inputs, actions and feedback. This builds on exercise 2. A polished or clickable prototype is not required; add one if you already have it.
+*[Add links or embed your sketches here: e.g., Search screen, Vehicle Details page, Booking Confirmation screen. Paper photos or draw.io diagrams are perfectly fine.]*
 
 ### Domain concepts and example data
 
-Link your sample JSON files for relevant things in the workflow. Use fictional data. Explain important fields, value types and references between objects; mark uncertainties. The bar catalogue and order examples are available as a starting point. There is no new fixed entity quota for this draft.
 
 ### Business rules and possible operations
 
-Describe a rule and an exception in plain language. Example: order quantities must be positive; discuss what happens when an item is unavailable. Later, explain where the implementation enforces the rule.
+**Rule:** A vehicle cannot be booked by two different users for overlapping dates. 
+**Exception:** If a user attempts to book dates that were just taken by someone else milliseconds prior, the system must reject the request and inform the user the vehicle is no longer available.
 
 | User goal | Proposed action | Example input | Expected output | Open question |
 |---|---|---|---|---|
-| [Goal] | [Read / create / change / remove something] | [Data needed] | [Result] | [What needs clarification?] |
-
-Use plain language; final endpoints and implementation can follow after coaching. These are draft ideas, not a complete CRUD implementation.
-
-### Inspiration from existing apps or APIs — optional
-
-If useful for your design, link an existing app, website or API and add one or two sentences about what you would adopt or improve for your users. No separate research report or external API integration is required for this milestone.
+| Rent a car | Create a booking | `vehicle_id`, `start_date`, `end_date` | Booking ID and "success" confirmation | Do we auto-confirm bookings, or require owner approval first? |
+| List a car | Create a vehicle listing | Make, model, license plate, daily rate | New `vehicle_id` | How detailed does the car description need to be? |
 
 ## 3. Project management
 
@@ -72,45 +70,39 @@ If useful for your design, link an existing app, website or API and add one or t
 
 | Question / decision | Current position | Next step / person |
 |---|---|---|
-| [Question] | [Draft answer or undecided] | [Action] |
+| Should we require owner approval for bookings? | Draft: Instant booking for companies, optional approval for private owners. | Discuss with lecturer during coaching. / [Name] |
+| Do we need to handle insurance details now? | Undecided. Might be too complex for the prototype. | Keep out of Milestone 1 scope. / [Name] |
 
 ### Milestone progress
 
 | Milestone | Available evidence | Status / next step |
 |---|---|---|
-| 1 — Design draft | Analysis, workflow, sketches, example JSON and proposed operations | [Links and open questions] |
-| 2 — Contract and available implementation | OpenAPI contract and implemented/tested progress | [Update later] |
-| Integration — later | Revised feature scope, frontend decision, architecture and a connected workflow | [Update after classroom examples; details in Moodle] |
-
-Use the Moodle assignment for the complete milestones, dates and assessment criteria. Describe contributions and decisions; commit counts do not measure individual effort.
+| 1 — Design draft | Analysis, workflow, example JSON and proposed operations documented above. | **[Add links to sketches, then submit to Moodle]** |
+| 2 — Contract and available implementation | OpenAPI contract and implemented/tested progress | *Update later* |
+| Integration — later | Revised feature scope, frontend decision, architecture and a connected workflow | *Update after classroom examples* |
 
 ## 4. References and acknowledgements
 
-List documentation, reused assets, libraries and other assistance relevant to your project, and explain adaptations where appropriate.
-
-Template lineage: the earlier [Pizzeria Reference Project](https://github.com/FHNW-INT/Pizzeria_Reference_Project) organised documentation around analysis, design, implementation, execution and project management. This template updates that structure for the HS26 Python/FastAPI teaching path; its Java/Spring and hosted Budibase setup instructions do not apply here.
+- Template lineage: [Pizzeria Reference Project](https://github.com/FHNW-INT/Pizzeria_Reference_Project) adapted for the HS26 Python/FastAPI teaching path.
+- *[List any other tools, libraries, or existing apps (like Mobility, Turo, or Uber Carshare) you looked at for inspiration here]*
 
 ## Worked example — adapt, do not submit unchanged
 
-From the design-class workflow and sketch exercises:
+*From the design-class workflow and sketch exercises (Adapted for Vehicle Rental):*
 
-- **Need:** serving staff want to record orders without losing items or quantities.
-- **Workflow:** select table and items → review quantities → submit → see confirmation. Bar staff can then read the pending order.
-- **Sketches:** order form, review/confirmation and pending-orders view. Link your own sketches; paper is sufficient.
-- **Data (exercise 1c):** `{"table": 3, "items": [{"menu_item_id": 1, "quantity": 2}]}`. `menu_item_id` refers to an item in the sample catalogue.
-- **Proposed operation:** create an order; expected result: an identifier and confirmation. This describes intended behaviour, not an implemented endpoint.
-- **API observation:** if you sent the Echo request, record that it repeated the JSON; it did not create an order or enforce quantity rules. If you only read the example, say so.
-- **Open question:** how should the app respond when a selected item is unavailable?
-
-For exercise 2, an alternative observation is that weather providers expose different structures, units and time intervals. Record the evidence you actually inspected and why it matters. Your project need not integrate a weather API.
+- **Need:** Renters want to quickly secure a vehicle without double-booking.
+- **Workflow:** enter dates → select car → review price → submit → see confirmation. Owners can then see the upcoming rental in their dashboard.
+- **Sketches:** *[Link your paper sketches of the search form, car detail view, and confirmation]*
+- **Data (exercise 1c):** `{"vehicle_id": 105, "renter_id": 42, "dates": {"start": "2026-10-15", "end": "2026-10-17"}}`. 
+- **Proposed operation:** Create a booking; expected result: an identifier and confirmation. This describes intended behaviour, not an implemented endpoint.
+- **API observation:** *[Add any observations if you tested weather/mapping APIs for location searches]*
+- **Open question:** How should the app respond if a renter returns the car late?
 
 ## Friday handoff checklist
 
-- Commit this README and the available draft material before the milestone.
-- First join the module's MS Team using the link in Moodle. The lecturer will then add you to your group's private channel during the week.
-- Submit the GitHub repository link in Moodle by Friday, following the milestone instructions published after class.
-- Ensure the lecturer can access the repository; public visibility is not required.
-- If you do not yet have a group channel and your team composition is not recorded in Moodle's team formation activity, email the lecturer with all team members' names. If the composition is already recorded, join the Team so you can be added to the channel. Contact the lecturer if the channel is still unavailable before the deadline.
-- Refer to Moodle for the milestone date and the full assignment requirements.
-
-Keep credentials and personal data out of the repository. The draft and its progress are useful evidence for project management; commit counts or lines of code are not measures of individual contribution.
+- [ ] Commit this README and the available draft material before the milestone.
+- [ ] First join the module's MS Team using the link in Moodle. 
+- [ ] Submit the GitHub repository link in Moodle by Friday.
+- [ ] Ensure the lecturer can access the repository; public visibility is not required.
+- [ ] If you do not yet have a group channel and your team composition is not recorded in Moodle's team formation activity, email the lecturer with all team members' names.
+- [ ] Keep credentials and personal data out of the repository.
