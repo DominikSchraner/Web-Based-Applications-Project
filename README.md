@@ -1,6 +1,6 @@
 # Web-Based-Applications-Project
 
-# DriveShare — Peer-to-Peer Vehicle Rental SaaS (Working Title)
+# EasyDrive — Peer-to-Peer Vehicle Rental SaaS (Working Title)
 
 **Current stage:** Milestone 1 — design draft. Update this README throughout the project; do not start a separate document for each milestone.
 
@@ -8,7 +8,7 @@ Later sections will be introduced in the fourth theory session and subsequent cl
 
 ## Project overview
 
-Our application (**DriveShare**) is a peer-to-peer and B2C SaaS platform (similar to Airbnb or Turo) that allows individuals and companies to list their vehicles for rent, while enabling other users to easily search, book, and rent these vehicles for temporary use. It addresses the problem of underutilized vehicles sitting idle, while providing flexible, localized, on-demand mobility options for people who do not own a car.
+Our application (**EasyDrive**) is a peer-to-peer and B2C SaaS platform (similar to Airbnb or Turo) that allows individuals and companies to list their vehicles for rent, while enabling other users to easily search, book, and rent these vehicles for temporary use. It addresses the problem of underutilized vehicles sitting idle, while providing flexible, localized, on-demand mobility options for people who do not own a car.
 
 ### Team and initial responsibilities
 
@@ -199,7 +199,7 @@ Our application (**DriveShare**) is a peer-to-peer and B2C SaaS platform (simila
 
 ## Worked example — adapt, do not submit unchanged
 
-*From the design-class workflow and sketch exercises (Adapted for DriveShare Vehicle Rental):*
+*From the design-class workflow and sketch exercises (Adapted for EasyDrive Vehicle Rental):*
 
 - **Need:** Renters want to quickly secure an available vehicle for specific dates without double-booking.
 - **Workflow:** Enter location & dates → select car → review calculated price → submit booking → see confirmation. Owners can then see and approve the upcoming rental in their dashboard.
